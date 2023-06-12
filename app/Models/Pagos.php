@@ -13,4 +13,8 @@ class pagos extends Model
         'value_pay',
         'pay_day'
     ];
+
+    public function creditos(){
+        return $this->hasMany('App\Models\credito');
+    }
 }
