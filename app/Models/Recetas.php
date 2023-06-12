@@ -14,6 +14,13 @@ class Recetas extends Model
         'ingredients',
         'description',
         
+        
     ];
+
+    // public function aprendiz(){
+    //     return $this->belongsTo(aprendiz::class, 'idAprendiz', 'id');
+    // }
+    
+
 
 }

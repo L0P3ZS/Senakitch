@@ -20,6 +20,10 @@ return new class extends Migration
             $table->string('images');
             $table->text('ingredients');
             $table->text('description');
+           
+            // $table->unsignedBigInteger('idAprendiz')->nullable(); 
+            
+            // $table->foreign('idAprendiz')->references('id')->on('aprendiz');
             $table->timestamps();
         });
     }

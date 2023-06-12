@@ -10,10 +10,14 @@ class Comentarios extends Model
     use HasFactory;
      
     protected $fillable = [
-        'description',   
+        'description', 
+        
     ];
 
-   
+    public function user(){
+        return $this->belongsTo(user::class, 'idUser', 'id');
+    }
+
     
 
 }
