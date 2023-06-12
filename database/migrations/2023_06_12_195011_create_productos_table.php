@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->double('price');
             $table->string('image_path');
+            
             $table->timestamps();
         });
     }
