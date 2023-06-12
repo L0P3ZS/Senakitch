@@ -21,6 +21,7 @@ class Recetas extends Model
     //     return $this->belongsTo(aprendiz::class, 'idAprendiz', 'id');
     // }
     
+    
 
 
 }

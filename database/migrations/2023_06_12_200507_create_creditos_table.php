@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('cardnumber');
             $table->date('expirationdater');
             $table->string('PostalCode');
+            $table->foreignId('idPagos')->constrained('pagos');
             $table->string('city');
             $table->string('Documentnumber');
             $table->timestamps();

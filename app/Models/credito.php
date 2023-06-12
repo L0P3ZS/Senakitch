@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class credito extends Model
 {
     use HasFactory;
+
+    public function pago(){
+        return $this->belongsTo('App\Models\Pagos');
+    }
 }
