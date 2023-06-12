@@ -10,4 +10,8 @@ class Aprendiz extends Model
     use HasFactory;
 
 
+
+
+
+
 }
