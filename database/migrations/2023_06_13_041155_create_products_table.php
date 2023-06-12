@@ -26,7 +26,6 @@ return new class extends Migration
             $table->integer('category_id');
             $table->string('image_path');
             $table->timestamps();
-
         });
     }
 

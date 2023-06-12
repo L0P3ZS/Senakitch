@@ -15,15 +15,12 @@ return new class extends Migration
     {
         Schema::create('recetas', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-             
+            $table->string('name')->unique();
             $table->string('images');
             $table->text('ingredients');
             $table->text('description');
-           
-            // $table->unsignedBigInteger('idAprendiz')->nullable(); 
-            
-            // $table->foreign('idAprendiz')->references('id')->on('aprendiz');
+            $table->unsignedBigInteger('idAprendiz');
+            $table->foreign('idAprendiz')->references('id')->on('aprendiz');
             $table->timestamps();
         });
     }

@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pagos', function (Blueprint $table) {
+        Schema::create('contados', function (Blueprint $table) {
             $table->id();
-            $table->string('value_pay');
-            $table->date('pay_day');
+            $table->string('imal');
+            $table->string('phone');
+            $table->string('address');
             $table->timestamps();
         });
     }
@@ -28,7 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pagos');
+        Schema::dropIfExists('contados');
     }
 };
-

@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('aprendiz', function (Blueprint $table) {
+        Schema::create('pagos', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('mail');
-            $table->string('image_path');
-            $table->string('phonenumber');
-            
+            $table->string('value_pay');
+            $table->date('pay_day');
+            $table->unsignedBigInteger('idContados');
+            $table->foreign('idContados')->references('id')->on('contados');
             $table->timestamps();
         });
     }
@@ -31,6 +30,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aprendiz');
+        Schema::dropIfExists('pagos');
     }
 };
+

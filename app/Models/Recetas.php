@@ -13,14 +13,14 @@ class Recetas extends Model
         'images',
         'ingredients',
         'description',
-        
-        
+
+
     ];
 
-    // public function aprendiz(){
-    //     return $this->belongsTo(aprendiz::class, 'idAprendiz', 'id');
-    // }
-    
+    public function aprendiz(){
+        return $this->belongsTo(aprendiz::class, 'idAprendiz', 'id');
+    }
+
 
 
 }
