@@ -13,13 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('aprendiz', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('idAprendiz')->nullable();
+            $table->foreign('idAprendiz')->references('id')->on('aprendiz');
             $table->string('name')->unique();
-            $table->string('mail');
+            // $table->string('slug')->unique();
+            // $table->string('details')->nullable();
+            $table->double('price');
+            $table->double('shipping_cost');
+            // $table->text('description');
+            $table->integer('category_id');
             $table->string('image_path');
-            $table->string('phonenumber');
             $table->timestamps();
+
         });
     }
 
@@ -30,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aprendiz');
+        Schema::dropIfExists('products');
     }
 };
