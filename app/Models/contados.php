@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class contados extends Model
 {
     use HasFactory;
-    public function contados()
+    public function pagos()
     {
-        return $this->belongsTo(contados::class, 'idContados', 'id');
+        return $this->belongsTo(pagos::class, 'idPagos', 'id');
     }
 
 }

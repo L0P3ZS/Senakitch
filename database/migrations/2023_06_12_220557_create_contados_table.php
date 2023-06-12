@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('imal');
             $table->string('phone');
             $table->string('address');
+            $table->unsignedBigInteger('idPagos');
+            $table->foreign('idPagos')->references('id')->on('pagos');
             $table->timestamps();
         });
     }

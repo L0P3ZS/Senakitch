@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('value_pay');
             $table->date('pay_day');
-            $table->unsignedBigInteger('idContados');
-            $table->foreign('idContados')->references('id')->on('contados');
             $table->timestamps();
         });
     }
