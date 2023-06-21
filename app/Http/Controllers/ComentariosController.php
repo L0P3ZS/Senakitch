@@ -45,6 +45,7 @@ class ComentariosController extends Controller
 
         $comentarios = new Comentarios;
         $comentarios->description=$request->input('description');
+        $comentarios->idUser=$request->input('idUser');
         $comentarios->save();
         
         return to_route('opiniones');
