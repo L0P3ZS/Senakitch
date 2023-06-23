@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('users_prductos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('idUsers')->references('id')->on('users');
-            $table->foreignId('idProductos')->references('id')->on('productos');
+            $table->unsignedBigInteger('idUsers');
+            $table->unsignedBigInteger('idProductos');
+
+            $table->foreign('idUsers')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('idProductos')->references('id')->on('productos')->onDelete('cascade');
             
             $table->timestamps();
         });

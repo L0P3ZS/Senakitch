@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('recetas', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('images');
+            $table->string('name',40)->unique();
+            $table->binary('images');
             $table->text('ingredients');
             $table->text('description');
             // $table->unsignedBigInteger('idAprendiz');
