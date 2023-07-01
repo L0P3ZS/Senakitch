@@ -14,6 +14,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ComentariosController;
 use App\Http\Controllers\CrudComentariosController;
 use App\Http\Controllers\CrudController;
+use App\Http\Controllers\ProductosController;
 use Illuminate\Routing\Router;
 use Whoops\Run;
 
@@ -64,7 +65,12 @@ Route::get('/opiniones',[ComentariosController::class,'comentarios'])->name('opi
 Route::post('/opiniones',[ComentariosController::class,'store'])->name('comentarios.store');
 
 //Productos
-Route::get('/productos',[HomeController::class,'gost'])->name('productos');
+Route::get('/productos',[HomeController::class,'productos'])->name('productos');
+Route::get('/crudProductos', [ProductosController::class,'index']);
+Route::post('/crudProductos', [ProductosController::class,'store'])->name('productos.store');
+Route::get('/crudProductos/{productos}/editar',[ProductosController::class,'edit'])->name('productos.editar');
+Route::put('/crudProductos/{productos}/actualizar',[ProductosController::class,'update'])->name('productos.update');
+Route::delete('crudRecetas/{productos}', [ProductosController::class,'destroy'])->name('productos.destroy');
 
 //Recetas
 Route::get('/recetas',[HomeController::class,'recetas'])->name('recetas');
@@ -82,7 +88,6 @@ Route::post('contactanos',[ContactanosController::class,'stor'])->name('contacta
 
 // Subir recetas
 Route::get('/crudRecetas',[RecetasController::class,'index']);
-Route::get('/subirRecetas',[HomeController::class,'formulario'])->name('subirRecetas');
 Route::post('/crudRecetas', [RecetasController::class,'store'])->name('crudRecetas.store');
 Route::get('/crudRecatas/{recetas}/editar',[RecetasController::class,'edit'])->name('formulario.editar');
 Route::put('/crudRecetas/{rescetas}/actualizar',[RecetasController::class,'update'])->name('formulario.update');
@@ -99,6 +104,6 @@ Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 
 
-Route::get('/prueba',[HomeController::class,'prueba']);
+Route::get('/perfil',[HomeController::class,'prueba'])->name('perfil');
 
 

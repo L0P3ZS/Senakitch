@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Productos;
 use Illuminate\Http\Request;
 use App\Models\Recetas;
 
@@ -20,8 +21,10 @@ class HomeController extends Controller
         return view('home.opiniones');
     }
 
-   public function gost(){
-    return view('home.product');
+   public function productos(){
+
+    $productos =Productos::all();
+    return view('home.product',compact('productos'));
 
    }
 

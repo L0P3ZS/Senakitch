@@ -13,7 +13,107 @@
 
 
             <div class="d-flex justify-content-center mb-2">
-              
+
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Subir productos
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+
+
+                    <div class="form-group">
+                        <label for="name"><h1>Nombre</h1></label>
+                        <input type="text" name="name" id="name" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price"><h1>Precio</h1></label>
+                        <input type="number" name="price" id="price" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image"><h1>Imagen</h1></label>
+                        <input type="file" name="image" id="image" class="form-control" required>
+                    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">enviar</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+
+
+            
+              <!-- Button para subir recetas  -->
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                publicar
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                      @if(Auth::check())
+                      <form action="{{ route('crudRecetas.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+
+                        <label for="">
+                          nombre de receta
+                          <input type="text" name="name" id="">
+                        </label><br>
+
+                        <label for="">
+                          imagen
+                          <input type="file" name="images" id="" accept="image/*">
+
+                        </label>
+                        <label for="">
+                          preparacion
+                          <br>
+                          <input name="ingredients" id="" cols="30" rows="10"></input>
+                        </label>
+                        <br>
+
+                        <label for="">
+                          ingredientes
+                          <br>
+                          <input name="description" id="" cols="30" rows="10"></input>
+                        </label>
+                        <br>
+                   
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">enviar</button>
+                    </div>
+                  </div>
+                  </form>
+                  @endif
+                </div>
+              </div>
+
+
               <button type="button" class="btn btn-primary ms-1">Siguir</button>
               <form action="/logout" class="d-flex mr-1" method="post">
                 @csrf
@@ -197,7 +297,7 @@
   </section>
 
 
-
+ 
 
 
 </x-layauts.apppp>

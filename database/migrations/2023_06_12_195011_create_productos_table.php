@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->double('price');
             $table->string('image_path');
-            $table->foreignId('idPagos')->references('id')->on('pagos');
+            // $table->foreignId('idPagos')->references('id')->on('pagos');
             $table->timestamps();
         });
     }
