@@ -13,7 +13,7 @@
         <a href="{{ route('opiniones') }}">opiniones</a>
         <a href="{{route('contactos')}}">contacto</a>
         <a href="{{ route('recetas') }}">Recetas</a>
-        <a href="{{ route('subirRecetas') }}">Publicar Recetas</a>
+        <a href="{{ route('perfil') }}">Perfil</a>
     </nav>
 
    

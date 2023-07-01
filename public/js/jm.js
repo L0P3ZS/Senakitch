@@ -23,3 +23,11 @@ var TrandingSlider = new Swiper('.tranding-slider', {
 
     }
   });
+
+  document.getElementById('openModalButton').addEventListener('click', function() {
+    document.getElementById('addProductModal').style.display = 'block';
+});
+
+document.querySelector('#addProductModal .close').addEventListener('click', function() {
+    document.getElementById('addProductModal').style.display = 'none';
+});

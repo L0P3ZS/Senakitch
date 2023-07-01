@@ -8,7 +8,8 @@
 
         
         <div class="box-container">
-    
+
+          @foreach($productos as $row)
             <div class="box">
                 <div class="icons">
                     <a href="#" class="fas fa-shopping-cart"></a>
@@ -16,10 +17,10 @@
                     <a href="#" class="fas fa-eye"></a>
                 </div>
                 <div class="image">
-                    <img src="" alt="">
+                    <img src="{{ $row->image_path }}" alt="">
                 </div>
                 <div class="content">
-                    <h3></h3>
+                    <h3>{{ $row->name}}</h3>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -27,10 +28,10 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <div class="price"><span>$20,900</span></div>
+                    <div class="price">{{ $row->price }} <span>{{ $row->price }}</span></div>
                 </div>
             </div>
-        
+        @endforeach
         </div>
 
         
