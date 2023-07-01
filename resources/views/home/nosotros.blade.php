@@ -41,7 +41,7 @@
             </div>
         </section>
 
-        
+
         <section class="galeria">
             <div class="sesgoarriba"></div>
             <div class="imagenes none">
@@ -96,6 +96,43 @@
 
                         <div class="info">
                             <h2 class="name">Sebastian Lopez</h2>
+                            <p class="bio">Programador</p>
+
+                            <div class="team_icon">
+                                <i class="fa-brands fa-facebook-f"></i>
+                                <i class="fa-brands fa-twitter"></i>
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile">
+                        <img src="image/chef2.png">
+
+                        <div class="info">
+                            <h2 class="name">Ronal Esparza</h2>
+                            <p class="bio">Documentador</p>
+
+                            <div class="team_icon">
+                                <i class="fa-brands fa-facebook-f"></i>
+                                <i class="fa-brands fa-twitter"></i>
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="profile">
+                        <img src="image/chef2.png">
+
+                        <div class="info">
+                            <h2 class="name">German Benavides</h2>
                             <p class="bio">Programador</p>
 
                             <div class="team_icon">
