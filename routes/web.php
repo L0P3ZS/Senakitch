@@ -51,7 +51,6 @@ Route::delete('crud/{crud}', [CrudController::class,'destroy'])->name('crud.dest
 
 //Crud Comentarios
 Route::get('/crudComentarios',[CrudComentariosController::class,'index']);
-Route::get('crudComentarios/{comentarios}/editar',[CrudComentariosController::class,'edit'])->name('crudComentarios.editar');
 Route::put('crudComentarios/{comentarios}/actualizar',[CrudComentariosController::class,'update'])->name('crudComentarios.update');
 Route::delete('crudComentarios/{comentarios}', [CrudComentariosController::class,'destroy'])->name('Comentarios.destroy');
 
@@ -70,7 +69,7 @@ Route::get('/crudProductos', [ProductosController::class,'index']);
 Route::post('/crudProductos', [ProductosController::class,'store'])->name('productos.store');
 Route::get('/crudProductos/{productos}/editar',[ProductosController::class,'edit'])->name('productos.editar');
 Route::put('/crudProductos/{productos}/actualizar',[ProductosController::class,'update'])->name('productos.update');
-Route::delete('crudRecetas/{productos}', [ProductosController::class,'destroy'])->name('productos.destroy');
+Route::delete('crudProductos/{productos}', [ProductosController::class,'destroy'])->name('productos.destroy');
 
 //Recetas
 Route::get('/recetas',[HomeController::class,'recetas'])->name('recetas');
@@ -89,9 +88,8 @@ Route::post('contactanos',[ContactanosController::class,'stor'])->name('contacta
 // Subir recetas
 Route::get('/crudRecetas',[RecetasController::class,'index']);
 Route::post('/crudRecetas', [RecetasController::class,'store'])->name('crudRecetas.store');
-Route::get('/crudRecatas/{recetas}/editar',[RecetasController::class,'edit'])->name('formulario.editar');
-Route::put('/crudRecetas/{rescetas}/actualizar',[RecetasController::class,'update'])->name('formulario.update');
-Route::delete('crudRecetas/{formulario}', [RecetasController::class,'destroy'])->name('formulario.destroy');
+Route::put('/crudRecetas/{rescetas}/actualizar',[RecetasController::class,'update'])->name('crudRecetas.update');
+Route::delete('crudRecetas/{recetas}', [RecetasController::class,'destroy'])->name('crudRecetas.destroy');
 
 
 //Menu

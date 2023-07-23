@@ -46,4 +46,11 @@ class ProductosController extends Controller
         return redirect()->route('productos.store')->with('success', 'Product created successfully.');
     }
 
+    public function destroy(Productos $productos)
+    {
+        $productos->delete();
+    
+        return redirect('crudProductos');
+    }
+
 }

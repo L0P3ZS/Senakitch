@@ -53,6 +53,22 @@ class RecetasController extends Controller
             'description'=> 'required',
 
         ]);
+        // $recetas = new Recetas();
+        // $recetas->name = $request->name;
+        // $recetas->ingredients = $request->ingredients;
+        // $recetas->description = $request->description;
+
+        // if ($image = $request->file('images')) {
+        //     $imagePath = 'images/';
+        //     $imageName = date('YmdHis') . "." . $image->getClientOriginalExtension();
+        //     $image->move($imagePath, $imageName);
+        //     $recetas->images = $imagePath . $imageName;
+        // }
+
+        
+
+
+        // $recetas->save();
 
         $files = $request->file('images');
         $name = $files->getClientOriginalName();
@@ -80,34 +96,22 @@ class RecetasController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Recetas $recetas)
-    {
-        return view('home.formulario',compact('recetas'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function update(Request $request, Recetas $recetas)
     {
-        $recetas->name = $request->name;
-        // $recetas->images = $request->images;
-        $recetas->ingredients = $request->ingredients;
-        $recetas->description = $request->description;
 
-        $recetas->save();
 
-        return redirect('formulario');
+        
+        // $recetas->name = $request->name;
+        // // $recetas->images = $request->images;
+        // $recetas->ingredients = $request->ingredients;
+        // $recetas->description = $request->description;
+        // $recetas->save();
+
+        // if ($request) {
+        //     # code...
+        // }
+         
 
     }
 
@@ -118,9 +122,9 @@ class RecetasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Recetas $recetas)
-    {
-        $recetas->delete();
+{
+    $recetas->delete();
 
-        return redirect('formulario');
-    }
+    return redirect('crudRecetas');
+}
 }
