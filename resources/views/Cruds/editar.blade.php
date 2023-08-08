@@ -25,11 +25,11 @@
         <h1>Editar Registro</h1>
         <!--nombre-->
         <div class="input-control">
-          <section> 
+          <section>
         @error('username')
         <small class="small">{{$message}}</small>
         @enderror
-        </section> 
+        </section>
         <label for="username">Nombre</label>
         <input type="text" placeholder="nombre" name="username" id="username" value="{{ $crud->username}}">
                 </div>
@@ -43,7 +43,7 @@
         <label for="email">Correo electronico</label>
         <input type="email" placeholder="correo electronico" name="email" id="email" value="{{ $crud->email}}">
                 </div>
-                
+
 
 
         <!--contraseña-->
@@ -53,17 +53,17 @@
         @enderror
         <label for="password">Contraseña</label>
         <input type="password" placeholder="Almenos 6 caracteres" name="password" id="password" value="{{ $crud->password}}">
-       
+
         </div>
 
        <input type="submit" value="Actualizar Registro" id="button" >
-       
+
         </div>
-    
+
 
     </div>
     </form>
-    
+
 </body>
 
 

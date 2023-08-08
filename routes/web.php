@@ -17,7 +17,7 @@ use App\Http\Controllers\CrudController;
 use App\Http\Controllers\ProductosController;
 use Illuminate\Routing\Router;
 use Whoops\Run;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +29,8 @@ use Whoops\Run;
 |
 */
 
+
+Auth::routes([ 'verify' => true ]);
 //Login
 Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'login']);
@@ -36,7 +38,7 @@ Route::post('/login', [LoginController::class, 'login']);
 //Registro
 Route::get('/Register', [RegisterController::class, 'show']);
 Route::post('/Register', [RegisterController::class, 'register']);
-Route::get('/Register', [RegisterController::class, 'show'])->name('register');
+// Route::get('/Register', [RegisterController::class, 'show'])->name('register');
 Route::post('/Register', [RegisterController::class, 'showRegister'])->name('registerPost');
 
 //Cerrar sesion
