@@ -18,7 +18,7 @@
         <h1>SENAKITCH</h1>
          <!--CORREO-->
 
-         <label for="Correo">Correo Electronico</label>
+         <label for="Correo">Correo electronico</label>
          <input type="text" placeholder="correo electronico" name="username">
           <!--Contraseña-->
           <label for="Contraseña">Contraseña</label>
