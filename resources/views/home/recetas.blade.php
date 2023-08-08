@@ -10,7 +10,7 @@
     @foreach($recetas as $row)
       <div class="box">
         <div class="image">
-          <img src="{{ 'storage/'.$row->images }}" alt="">
+          <img src="{{ asset('storage/' . $row->images) }}" alt="">
         </div>
         <div class="content">
           <a href="#" class="title">{{ $row->name}}</a>

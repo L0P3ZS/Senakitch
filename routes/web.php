@@ -88,7 +88,7 @@ Route::post('contactanos',[ContactanosController::class,'stor'])->name('contacta
 // Subir recetas
 Route::get('/crudRecetas',[RecetasController::class,'index']);
 Route::post('/crudRecetas', [RecetasController::class,'store'])->name('crudRecetas.store');
-Route::put('/crudRecetas/{rescetas}/actualizar',[RecetasController::class,'update'])->name('crudRecetas.update');
+Route::put('/crudRecetas/{rescetas}',[RecetasController::class,'update'])->name('crudRecetas.update');
 Route::delete('crudRecetas/{recetas}', [RecetasController::class,'destroy'])->name('crudRecetas.destroy');
 
 
