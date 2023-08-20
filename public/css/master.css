@@ -89,36 +89,43 @@ body {
     cursor: pointer;
     
 }
+.login-button {
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    background: #d70c0c;
+    color: #fff;
+    font-size: 46px;
+    border-radius: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    height: 23px;
+    width: 85%;
+}
 
-.Login-box input[type="button"] {
+/* .Login-box input[type="submit"] {
     border: none;
     outline: none;
     height: 40px;
-    background: #172fff;
+    background: #ed1717;
     color: #fff;
     font-size: 16px;
     border-radius: 20px;
     cursor: pointer;
     
-}
+} */
+
+
 
 
 .Login-box a {
     text-decoration: none;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 20px;
-    coloR:#000(228, 115, 10);
+    color:#000(228, 115, 10);
     text-align: center;
 }
-
-.Login-box a:hover {
-    color: rgb(51, 137, 51);
-    
-}
-
-
-
-
 
 .Login-box input[type="button"]:hover{
     letter-spacing: .1,1rem;
@@ -142,8 +149,23 @@ button[type="submit"]:hover{
 
 }
 
-input[type="button"]:hover{
+.login-button:hover{
 
-    background-color: rgb(14, 114, 255);
+    background-color: rgb(255, 18, 14);
 
+}
+
+.login-button:hover{
+    letter-spacing: .1,1rem;
+    transition:1s;
+    transform:scale(1.1);
+    color: white;
+}
+
+.a:hover{
+    color: #20b73c;
+}
+.a{
+    font-size: 30px;
+    color: #000;
 }

@@ -61,6 +61,9 @@ class HomeController extends Controller
         return view('home.crud');
     }
 
+    public function init(){
+        return view('auth.login');
+    }
 
 
 

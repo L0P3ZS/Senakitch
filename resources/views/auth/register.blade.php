@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
     <link rel="icon" href="{{ asset('/img/senakitch.ico') }}">
-    <link rel="stylesheet" href="{{ asset('regis.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/regis.css') }}">
     <script scr="{{asset('js/js.js')}}"></script>
 </head>
 

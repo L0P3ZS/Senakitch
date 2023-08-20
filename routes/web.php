@@ -14,6 +14,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ComentariosController;
 use App\Http\Controllers\CrudComentariosController;
 use App\Http\Controllers\CrudController;
+use App\Http\Controllers\LoginGoogleController;
 use App\Http\Controllers\ProductosController;
 use Illuminate\Routing\Router;
 use Whoops\Run;
@@ -30,8 +31,29 @@ use Whoops\Run;
 */
 
 //Login
+Route::get('/', [HomeController::class,'init']);
 Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'login']);
+
+
+// use Laravel\Socialite\Facades\Socialite;
+ 
+// Route::get('/login-google', function () {
+//     return Socialite::driver('google')->redirect();
+// });
+ 
+// Route::get('/google-callback', function () {
+//     $user = Socialite::driver('google')->user();
+//     
+ 
+//     // $user->token
+// });
+
+
+// login con google
+
+Route::get('/login-google',[LoginGoogleController::class,'google'])->name('google');
+Route::get('/google-callback',[LoginGoogleController::class,'usergoogle']);
 
 //Registro
 Route::get('/Register', [RegisterController::class, 'show']);
