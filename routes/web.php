@@ -123,7 +123,7 @@ Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 
-
+//Perfil
 Route::get('/perfil',[HomeController::class,'prueba'])->name('perfil');
 
 

@@ -9,51 +9,38 @@
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Inicio</span>
+                        <a href="{{route('home')}}" class="nav-link align-middle px-0">
+                            <i class="fas fa-home"></i> <span class="ms-1 d-none d-sm-inline">Inicio</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                        <a href="{{route('cart.store')}}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fas fa-shopping-cart"></i> <span class="ms-1 d-none d-sm-inline">Compras</span> </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
+                        <a href="{{route('menu')}}" class="nav-link px-0 align-middle">
+                            <i class="fas fa-hamburger"></i> <span class="ms-1 d-none d-sm-inline">Menu</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('productos')}}" class="nav-link align-middle px-0">
+                            <i  class="fas fa-shopping-bag"></i> <span class="ms-1 d-none d-sm-inline">Productos</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-                            </li>
-                        </ul>
+                        <a href="{{route('recetas')}}" class="nav-link px-0 align-middle">
+                            <i class="fas fa-utensils"></i> <span class="ms-1 d-none d-sm-inline">Recetas</span> </a>
                     </li>
                     <li>
-                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                            </li>
-                        </ul>
+                        <a href="{{route('opiniones')}}" class="nav-link px-0 align-middle">
+                            <i class="fas fa-comment"></i> <span class="ms-1 d-none d-sm-inline">Comentarios</span> </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+                        <a href="{{route('contactos')}}" class="nav-link px-0 align-middle">
+                            <i class="fas fa-envelope"></i> <span class="ms-1 d-none d-sm-inline">Contactanos</span> </a>
+                    </li>
+                    <li>
+                        <a href="{{route('nosotros')}}" class="nav-link px-0 align-middle">
+                            <i class="fas fa-users"></i> <span class="ms-1 d-none d-sm-inline">Sobre nosotros</span> </a>
                     </li>
                 </ul>
                 <hr>
@@ -115,21 +102,21 @@
 
                         <div class="form-group">
                           <label for="name">
-                            <h1>Nombre</h1>
+                            Nombre
                           </label>
                           <input type="text" name="name" id="name" class="form-control" required>
                         </div>
 
                         <div class="form-group">
                           <label for="price">
-                            <h1>Precio</h1>
+                            Precio
                           </label>
                           <input type="number" name="price" id="price" class="form-control" required>
                         </div>
 
                         <div class="form-group">
                           <label for="image">
-                            <h1>Imagen</h1>
+                            Imagen
                           </label>
                           <input type="file" name="image" id="image" class="form-control" required>
                         </div>
@@ -148,7 +135,7 @@
 
               <!-- Button para subir recetas  -->
               <button type="button" class="btn btn-primary ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                publicar
+                publicar recetas
               </button>
 
               <!-- Modal -->
@@ -165,29 +152,34 @@
                       <form   action="{{ route('crudRecetas.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
+                        <div class="form-group">
                         <label for="">
                           nombre de receta
-                          <input type="text" name="name" id="">
-                        </label><br>
+                        </label>
+                        <input type="text" class="form-control" name="name">
+                        </div>
 
+                        <div class="form-group">
                         <label for="">
                           imagen
-                          <input type="file" name="images" id="" accept="image/*">
-
                         </label>
+                        <input type="file" class="form-control" name="images"  accept="image/*">
+                        </div>
+
+                        <div class="form-group">
                         <label for="">
                           preparacion
-                          <br>
-                          <input name="ingredients" id="" cols="30" rows="10"></input>
                         </label>
-                        <br>
-
+                        <input name="ingredients" class="form-control" ></input>
+                        </div>
+                        
+                        <div class="form-group">
                         <label for="">
                           ingredientes
-                          <br>
-                          <input name="description" id="" cols="30" rows="10"></input>
                         </label>
-                        <br>
+                        <input name="description" class="form-control" ></input>
+                        </div>
+                      
 
                     </div>
                     <div class="modal-footer">
@@ -199,6 +191,7 @@
                   @endif
                 </div>
               </div>
+
               <button type="button" class="btn btn-primary ms-1">Siguir</button>
             </div>
           </div>
