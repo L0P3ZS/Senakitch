@@ -1,13 +1,81 @@
-<x-layauts.apppp>
+<x-layauts.appPerfil>
+  <div class="container-fluid">
+  @auth
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a href="{{route('home')}}" class="nav-link align-middle px-0">
+                            <i class="fas fa-home"></i> <span class="ms-1 d-none d-sm-inline">Inicio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('cart.store')}}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fas fa-shopping-cart"></i> <span class="ms-1 d-none d-sm-inline">Compras</span> </a>
+                    </li>
+                    <li>
+                        <a href="{{route('menu')}}" class="nav-link px-0 align-middle">
+                            <i class="fas fa-hamburger"></i> <span class="ms-1 d-none d-sm-inline">Menu</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('productos')}}" class="nav-link align-middle px-0">
+                            <i  class="fas fa-shopping-bag"></i> <span class="ms-1 d-none d-sm-inline">Productos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('recetas')}}" class="nav-link px-0 align-middle">
+                            <i class="fas fa-utensils"></i> <span class="ms-1 d-none d-sm-inline">Recetas</span> </a>
+                    </li>
+                    <li>
+                        <a href="{{route('opiniones')}}" class="nav-link px-0 align-middle">
+                            <i class="fas fa-comment"></i> <span class="ms-1 d-none d-sm-inline">Comentarios</span> </a>
+                    </li>
+                    <li>
+                        <a href="{{route('contactos')}}" class="nav-link px-0 align-middle">
+                            <i class="fas fa-envelope"></i> <span class="ms-1 d-none d-sm-inline">Contactanos</span> </a>
+                    </li>
+                    <li>
+                        <a href="{{route('nosotros')}}" class="nav-link px-0 align-middle">
+                            <i class="fas fa-users"></i> <span class="ms-1 d-none d-sm-inline">Sobre nosotros</span> </a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="dropdown pb-4">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{ Auth::user()->avatar }}" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                        <span class="d-none d-sm-inline mx-1">{{ Auth::user()->username }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                        <form action="/logout" class="d-flex mr-1" method="post">
+                @csrf
 
-  <section class="caja" style="background-color: #000;">
+                <a class="dropdown-item" href="#" onclick="this.closest('form').submit()">cerrar session</a>
+              </form>  
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col py-3">
+        <section class="caja  justify-content-center " style="  margin-bottom: 50px; width: 100%;">
 
     <div class="row">
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center ">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-            @auth
+            <img src="{{ Auth::user()->avatar }}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+           
             <h5 class="my-3">{{ Auth::user()->username }}</h5>
             <p class="text-muted mb-1">{{ Auth::user()->email }}</p>
 
@@ -34,21 +102,21 @@
 
                         <div class="form-group">
                           <label for="name">
-                            <h1>Nombre</h1>
+                            Nombre
                           </label>
                           <input type="text" name="name" id="name" class="form-control" required>
                         </div>
 
                         <div class="form-group">
                           <label for="price">
-                            <h1>Precio</h1>
+                            Precio
                           </label>
                           <input type="number" name="price" id="price" class="form-control" required>
                         </div>
 
                         <div class="form-group">
                           <label for="image">
-                            <h1>Imagen</h1>
+                            Imagen
                           </label>
                           <input type="file" name="image" id="image" class="form-control" required>
                         </div>
@@ -66,8 +134,8 @@
 
 
               <!-- Button para subir recetas  -->
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                publicar
+              <button type="button" class="btn btn-primary ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                publicar recetas
               </button>
 
               <!-- Modal -->
@@ -84,29 +152,34 @@
                       <form   action="{{ route('crudRecetas.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
+                        <div class="form-group">
                         <label for="">
                           nombre de receta
-                          <input type="text" name="name" id="">
-                        </label><br>
+                        </label>
+                        <input type="text" class="form-control" name="name">
+                        </div>
 
+                        <div class="form-group">
                         <label for="">
                           imagen
-                          <input type="file" name="images" id="" accept="image/*">
-
                         </label>
+                        <input type="file" class="form-control" name="images"  accept="image/*">
+                        </div>
+
+                        <div class="form-group">
                         <label for="">
                           preparacion
-                          <br>
-                          <input name="ingredients" id="" cols="30" rows="10"></input>
                         </label>
-                        <br>
-
+                        <input name="ingredients" class="form-control" ></input>
+                        </div>
+                        
+                        <div class="form-group">
                         <label for="">
                           ingredientes
-                          <br>
-                          <input name="description" id="" cols="30" rows="10"></input>
                         </label>
-                        <br>
+                        <input name="description" class="form-control" ></input>
+                        </div>
+                      
 
                     </div>
                     <div class="modal-footer">
@@ -119,14 +192,7 @@
                 </div>
               </div>
 
-
               <button type="button" class="btn btn-primary ms-1">Siguir</button>
-              <form action="/logout" class="d-flex mr-1" method="post">
-                @csrf
-
-                <a class="btn btn-outline-danger mr-1" href="#" onclick="this.closest('form').submit()">cerrar session</a>
-              </form>
-              <button type="button" class="btn btn-outline-primary ms-1">mensaje</button>
             </div>
           </div>
         </div>
@@ -207,63 +273,13 @@
                 <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
               </div>
             </div>
-          </div>
-
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-4 mb-md-0">
-              <div class="card-body">
-                <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
-                </p>
-                <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                <div class="progress rounded mb-2" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
               </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card mb-4 mb-md-0">
-              <div class="card-body">
-                <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
-                </p>
-                <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                <div class="progress rounded mb-2" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
               </div>
             </div>
           </div>
@@ -271,42 +287,9 @@
       </div>
     </div>
     </div>
-
-
-
   </section>
-
-
-
-  <section class="footer">
-
-    <div class="share">
-      <a href="https://www.facebook.com/SENA" class="fab fa-facebook-f"></a>
-      <a href="https://twitter.com/SENAComunica" class="fab fa-twitter"></a>
-      <a href="https://www.instagram.com/senacomunica/" class="fab fa-instagram"></a>
-      <a href="https://co.linkedin.com/school/servicio-nacional-de-aprendizaje-sena-/" class="fab fa-linkedin"></a>
-      <a href="https://co.pinterest.com/senacomunica/" class="fab fa-pinterest"></a>
+        </div>
     </div>
+</div>
 
-    <div class="links">
-      <a href="#home">inicio</a>
-      <a href="#about">acerca de</a>
-      <a href="#menu">menu</a>
-      <a href="#products">productos</a>
-      <a href="#review">opiniones</a>
-      <a href="#contact">contacto</a>
-      <a href="#blogs">recetas</a>
-    </div>
-
-    <div class="credit">creado por <span>Senakitch</span> | Todos los derechos reservados</div>
-
-
-
-
-  </section>
-
-
-
-
-
-</x-layauts.apppp>
+</x-layauts.appPerfil>

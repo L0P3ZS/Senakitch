@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio Sesion </title>
-    <link rel="stylesheet" href="{{ asset('master.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/master.css') }}">
     <link rel="icon" href="{{ asset('/img/senakitch.ico') }}">
 
 
@@ -29,6 +29,10 @@
           <input type="button"value="Continuar con Facebook"
           onclick="redireccionar()">
 
+
+          <a href="{{ route('google') }}" class="login-button">Continuar con Google</a>
+
+
           <br>
 
           <br><h4>Compartiendo nuestros conocimientos</h4>
@@ -46,11 +50,12 @@
                 @endif
             </div>
         </div>
+          <a  class="a" href="olvidastes.html">¿Olvidaste tu Contraseña</a><br>
+          <a  class="a" href="{{route('register')}}">¿No tienes cuenta?</a> <br>
+
 
 
     </div>
-
-
 
 </form>
     <script src="sr.js"></script>

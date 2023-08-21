@@ -34,7 +34,7 @@
         <tr>
           <th scope="row">{{ $row->id }}</th>
           <td>{{ $row->name }}</td>
-          <td><img  width="300" src="(( asset($row->images) )) " class="img-fluid"></td>
+          <td><img  width="200" src="{{ asset('storage/' . $row->images) }} " class="img-fluid"></td>
           <td>{{ $row->description }}</td>
           <td>{{ $row->ingredients }}</td>
           <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $row->id }}">Editar</button></td>
@@ -51,7 +51,7 @@
 
                   <form action="{{ route('crudRecetas.update', $row->id ) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('put')
+                    @method('PUT')
                     <label for="">
                       nombre de receta
                       <input type="text" name="name" id="" value="{{ $row->name }}">
@@ -60,12 +60,13 @@
 
                 
                     <div class="text-center">
-                      <img width="200" src="{{ $row->images}}" class="rounded" alt="image">
-                      <label for="">
+                      <img width="200" src="{{ asset('storage/' . $row->images) }}" class="rounded" alt="image">
+                    </div>
+
+                    <label for="">
                           <h1>subir imagen nueva</h1>
                           <input type="file" name="images" id="" accept="image/*">
                         </label>
-                    </div>
                   
 
                     <label for="">

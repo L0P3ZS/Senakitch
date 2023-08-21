@@ -10,16 +10,15 @@
 <body>
 
 
-    <div >
-   
+<div>
     <div class="image">
-          <img src="/storage/{{ $recetas->images }}" alt="">
-        </div>
-        <h1 class="title">{{ $recetas->name }}</h1><br>
-        <p >{{ $recetas->ingredients }}</p><br>
-        <p >{{ $recetas->description }}</p>
-      
+        <img src="{{ asset('storage/' . $recetas->images) }}" alt="{{ $recetas->images }}">
     </div>
+    <h1 class="title">{{ $recetas->name }}</h1><br>
+    <p>{{ $recetas->ingredients }}</p><br>
+    <p>{{ $recetas->description }}</p>
+</div>
+
    
 </body>
 </html>

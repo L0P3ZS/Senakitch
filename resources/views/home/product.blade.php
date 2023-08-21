@@ -17,7 +17,7 @@
                     <a href="#" class="fas fa-eye"></a>
                 </div>
                 <div class="image">
-                    <img src="{{ $row->image_path }}" alt="">
+                    <img src="{{ asset('storage/' . $row->image) }}" alt="">
                 </div>
                 <div class="content">
                     <h3>{{ $row->name}}</h3>

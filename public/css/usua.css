@@ -1,264 +1,152 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+.caja {
+    padding: 5% 5% 5% 5%;
 
-:root{
-    --main-color: rgb(51, 137, 51);
-    --black:#13131a;
-    --bg:#010103;
-    --border:.1rem solid rgba(255,255,255,.3);
+  }
+
+
+/* Estilos para el modal */
+.modal-dialog {
+  max-width: 500px; /* Ancho máximo del modal */
 }
 
-*{
-    font-family: 'Roboto', sans-serif;
-    margin:0; padding:0;
-    box-sizing: border-box;
-    outline: none; border:none;
-    text-decoration: none;
-    text-transform: capitalize;
-    transition: .2s linear;
+.modal-content {
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px;
 }
 
-html{
-    font-size: 62.5%;
-    overflow-x: hidden;
-    scroll-padding-top: 9rem;
-    scroll-behavior: smooth;
+.modal-header {
+  background-color: #f8f9fa; /* Color de fondo del encabezado */
+  border-bottom: none; /* Sin borde inferior en el encabezado */
 }
 
-
-body{
-    background: var(--bg);
+.modal-title {
+  font-size: 1.5rem; /* Tamaño de fuente del título */
 }
 
-section{
-    padding:2rem 7%;
+.modal-body {
+  padding-top: 0; /* Espacio superior mínimo en el cuerpo */
 }
 
-.heading{
-    text-align: center;
-    color:#fff;
-    text-transform: uppercase;
-    padding-bottom: 3.5rem;
-    font-size: 4rem;
+.modal-footer {
+  border-top: none; /* Sin borde superior en el pie de página */
 }
 
-.heading span{
-    color:var(--main-color);
-    text-transform: uppercase;
+/* Estilos para los botones */
+.btn-primary {
+  background-color: #007bff; /* Color de fondo del botón primario */
+  border-color: #007bff; /* Color del borde del botón primario */
 }
 
-.btn{
-    margin-top: 1rem;
-    display: inline-block;
-    padding:.9rem 3rem;
-    font-size: 1.7rem;
-    color:#fff;
-    background: var(--main-color);
-    cursor: pointer;
+.btn-primary:hover {
+  background-color: #0056b3; /* Color de fondo del botón primario al pasar el mouse */
+  border-color: #0056b3; /* Color del borde del botón primario al pasar el mouse */
 }
 
-.btn:hover{
-    letter-spacing: .2rem;
+.btn-secondary {
+  background-color: #6c757d; /* Color de fondo del botón secundario */
+  border-color: #6c757d; /* Color del borde del botón secundario */
 }
 
-.header{
-    background: var(--bg);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding:1.5rem 7%;
-    border-bottom: var(--border);
-    position: fixed;
-    top:0; left: 0; right: 0;
-    z-index: 1000;
-}
-
-.header .logo img{
-    height: 6rem;
-}
-
-.header .navbar a{
-    margin:0 1rem;
-    font-size: 1.6rem;
-    color:#fff;
-    text-decoration: none;
-}
-
-.header .navbar a:hover{
-    color:var(--main-color);
-    border-bottom: .1rem solid var(--main-color);
-    padding-bottom: .5rem;
-}
-
-.header .icons div{
-    color:#fff;
-    cursor: pointer;
-    font-size: 2.5rem;
-    margin-left: 2rem;
-}
-
-.header .icons div:hover{
-    color:var(--main-color);
-}
-
-#menu-btn{
-    display: none;
-}
-
-.header .search-form{
-    position: absolute;
-    top:115%; right: 7%;
-    background: #fff;
-    width: 50rem;
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    transform: scaleY(0);
-    transform-origin: top;
-}
-
-.header .search-form.active{
-    transform: scaleY(1);
-}
-
-.header .search-form input{
-    height: 100%;
-    width: 100%;
-    font-size: 1.6rem;
-    color:var(--black);
-    padding:1rem;
-    text-transform: none;
-}
-
-.header .search-form label{
-    cursor: pointer;
-    font-size: 2.2rem;
-    margin-right: 1.5rem;
-    color:var(--black);
-}
-
-.header .search-form label:hover{
-    color:var(--main-color);
-}
-
-.header .cart-items-container{
-    position: absolute;
-    top:100%; right: -100%;
-    height: calc(100vh - 9.5rem);
-    width: 35rem;
-    background: #fff;
-    padding:0 1.5rem;
-}
-
-.header .cart-items-container.active{
-    right: 0;
-}
-
-.header .cart-items-container .cart-item{
-    position: relative;
-    margin:2rem 0;
-    display: flex;
-    align-items: center;
-    gap:1.5rem;
-}
-
-.header .cart-items-container .cart-item .fa-times{
-    position: absolute;
-    top:1rem; right: 1rem;
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--black);
-}
-
-.header .cart-items-container .cart-item .fa-times:hover{
-    color:var(--main-color);
-}
-
-.header .cart-items-container .cart-item img{
-    height: 7rem;
-}
-
-.header .cart-items-container .cart-item .content h3{
-    font-size: 2rem;
-    color:var(--black);
-    padding-bottom: .5rem;
-}
-
-.header .cart-items-container .cart-item .content .price{
-    font-size: 1.5rem;
-    color:var(--main-color);
-}
-
-.header .cart-items-container .btn{
-    width: 100%;
-    text-align: center;
-}
-.caja{
-    padding-top: 7%;
-    font-size: 14px;
-    height: 80vh;
+.btn-secondary:hover {
+  background-color: #545b62; /* Color de fondo del botón secundario al pasar el mouse */
+  border-color: #545b62; /* Color del borde del botón secundario al pasar el mouse */
 }
 
 
-.footer{
-    background:var(--black);
-    text-align: center;
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;;
 
+
+.modal-content {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
 }
 
-.footer .share{
-    padding:1rem 0;
-    
+.modal-header {
+  background-color: #4CAF50;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.footer .share a{
-    height: 5rem;
-    width: 5rem;
-    line-height: 5rem;
-    font-size: 2rem;
-    color:#fff;
-    border:var(--border);
-    margin:.3rem;
-    border-radius: 50%;
-    text-decoration: none;
+.modal-title {
+    font-family: "Edu SA Beginner", cursive;
+  font-size: 24px;
+  margin: 0;
 }
 
-.footer .share a:hover{
-    background-color: var(--main-color);
+.modal-body {
+  padding: 20px;
 }
 
-.footer .links{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding:2rem 0;
-    gap:1rem;
-
+.form-group {
+  margin-bottom: 20px;
 }
 
-.footer .links a{
-    padding:.7rem 2rem;
-    color:#fff;
-    border:var(--border);
-    font-size: 2rem;
-    text-decoration: none;
+.form-group label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-.footer .links a:hover{
-    background:var(--main-color);
+
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: border-color 0.2s ease;
 }
 
-.footer .credit{
-    font-size: 2rem;
-    color:#fff;
-    font-weight: lighter;
-    padding:1.5rem;
+.form-control:focus {
+  outline: none;
+  border-color: #4CAF50;
 }
 
-.footer .credit span{
-    color:var(--main-color);
+.btn-close {
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
+
+.modal-footer {
+  border-top: 1px solid #e2e2e2;
+  padding: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-footer button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100px;
+}
+
+.modal-footer .btn-secondary {
+  background-color: #e2e2e2;
+  color: #333;
+}
+
+.modal-footer .btn-primary {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #45a049;
+}
+
+.texto{
+    font-family: "Edu SA Beginner", cursive;
+}
+
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\Productos;
 use Illuminate\Http\Request;
 
@@ -23,27 +24,30 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|unique:products',
-            'image' => 'required|image',
-            'price' => 'required'
+        // dd($request->all());
+        $this->validate($request, [
+            'name'=> 'required',
+            'image'=> 'required|image|mimes:png,jpg',
+            'price'=> 'required',
+            
+
         ]);
+     
+        $files = $request->file('image');
+        $name = $files->getClientOriginalName();
+        $estencion = $files->getClientOriginalExtension();
 
-        $productos = new Productos();
-        $productos->name = $request->name;
-        $productos->price = $request->price;
+        // $files->store('images', ['disk' => 'public']);
+        $rutaImagen = $files->storeAs('products',$name, ['disk' => 'public']);
+        $data = $request->only('name','price');
+        $data['image']=$rutaImagen;
+        Productos::create($data);
 
-        // Guardar la imagen y asignar el nombre de la imagen al modelo
-        if ($image = $request->file('image')) {
-            $imagePath = 'images/';
-            $imageName = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($imagePath, $imageName);
-            $productos->image_path = $imagePath . $imageName;
-        }
+        
 
-        $productos->save();
+        return redirect("productos");
 
-        return redirect()->route('productos.store')->with('success', 'Product created successfully.');
+       
     }
 
     public function destroy(Productos $productos)

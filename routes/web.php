@@ -14,6 +14,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ComentariosController;
 use App\Http\Controllers\CrudComentariosController;
 use App\Http\Controllers\CrudController;
+use App\Http\Controllers\LoginGoogleController;
 use App\Http\Controllers\ProductosController;
 use Illuminate\Routing\Router;
 use Whoops\Run;
@@ -32,8 +33,29 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes([ 'verify' => true ]);
 //Login
+Route::get('/', [HomeController::class,'init']);
 Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'login']);
+
+
+// use Laravel\Socialite\Facades\Socialite;
+ 
+// Route::get('/login-google', function () {
+//     return Socialite::driver('google')->redirect();
+// });
+ 
+// Route::get('/google-callback', function () {
+//     $user = Socialite::driver('google')->user();
+//     
+ 
+//     // $user->token
+// });
+
+
+// login con google
+
+Route::get('/login-google',[LoginGoogleController::class,'google'])->name('google');
+Route::get('/google-callback',[LoginGoogleController::class,'usergoogle']);
 
 //Registro
 Route::get('/Register', [RegisterController::class, 'show']);
@@ -90,7 +112,7 @@ Route::post('contactanos',[ContactanosController::class,'stor'])->name('contacta
 // Subir recetas
 Route::get('/crudRecetas',[RecetasController::class,'index']);
 Route::post('/crudRecetas', [RecetasController::class,'store'])->name('crudRecetas.store');
-Route::put('/crudRecetas/{rescetas}/actualizar',[RecetasController::class,'update'])->name('crudRecetas.update');
+Route::put('/crudRecetas/{rescetas}',[RecetasController::class,'update'])->name('crudRecetas.update');
 Route::delete('crudRecetas/{recetas}', [RecetasController::class,'destroy'])->name('crudRecetas.destroy');
 
 
@@ -103,7 +125,7 @@ Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 
-
+//Perfil
 Route::get('/perfil',[HomeController::class,'prueba'])->name('perfil');
 
 

@@ -10,8 +10,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Productos extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'image',
+        'price',
 
-
+    ];
 
 
     
