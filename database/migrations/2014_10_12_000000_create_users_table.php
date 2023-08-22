@@ -21,7 +21,9 @@ return new class extends Migration
             $table->string('external_id')->nullable();
             $table->string('external_auth')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->nullable()->change();
+            // $table->string('password')->nullable()->change();
+            $table->string('password');
+            // el nullable y change esta generando conflictos
             $table->rememberToken();
             $table->timestamps();
         });

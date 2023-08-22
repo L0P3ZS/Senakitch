@@ -58,7 +58,7 @@
                     </label><br>
 
 
-                
+
                     <div class="text-center">
                       <img width="200" src="{{ asset('storage/' . $row->images) }}" class="rounded" alt="image">
                     </div>
@@ -67,7 +67,7 @@
                           <h1>subir imagen nueva</h1>
                           <input type="file" name="images" id="" accept="image/*">
                         </label>
-                  
+
 
                     <label for="">
                       preparacion
@@ -118,7 +118,7 @@
 
 
  <script src="{{ asset('js/funtion.js') }}"></script>
- 
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 

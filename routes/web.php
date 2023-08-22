@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Route::resource('store', StoreController::class)->middleware(['auth', 'verified']);
 
 Auth::routes([ 'verify' => true ]);
 //Login
@@ -39,15 +40,15 @@ Route::post('/login', [LoginController::class, 'login']);
 
 
 // use Laravel\Socialite\Facades\Socialite;
- 
+
 // Route::get('/login-google', function () {
 //     return Socialite::driver('google')->redirect();
 // });
- 
+
 // Route::get('/google-callback', function () {
 //     $user = Socialite::driver('google')->user();
-//     
- 
+//
+
 //     // $user->token
 // });
 

@@ -14,7 +14,7 @@
 <form action="/login" method="POST">
     @csrf
     <div class="Login-box">
-        <img class="avatar" src="img/elsena.png" alt="Logo de Fazt">
+        <img class="avatar" src="img/senalog.png" alt="Logo de Fazt">
         <h1>SENAKITCH</h1>
          <!--CORREO-->
 
@@ -26,41 +26,24 @@
 
           <button type="submit" value="Login">Continuar  </button>
 
-          <input type="button"value="Continuar con Facebook"
-          onclick="redireccionar()">
-
 
           <a href="{{ route('google') }}" class="login-button">Continuar con Google</a>
 
 
-          <br>
 
-          <br><h4>Compartiendo nuestros conocimientos</h4>
-
-           {{-- <a href="{{route('passwords.request')}}">¿Olvidaste tu Contraseña</a><br> --}}
-          <a href="{{route('register')}}">¿No tienes cuenta?</a> <br>
-
-
+          <span><a href="{{route('register')}}">¿No tienes cuenta?</a></span>
           <div class="form-group row mb-0">
             <div class="col-md-8 offset-md-4">
                 @if (Route::has('password.request'))
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                        {{ __('¿Olvidaste tu contraseña?') }}
-                    </a>
+                <span><a class="btn btn-link" href="{{ route('password.request') }}"> {{ __('¿Olvidaste tu contraseña?') }}</a></span>
+                    </span>
                 @endif
             </div>
-        </div>
-          <a  class="a" href="olvidastes.html">¿Olvidaste tu Contraseña</a><br>
-          <a  class="a" href="{{route('register')}}">¿No tienes cuenta?</a> <br>
-
-
-
-    </div>
 
 </form>
-    <script src="sr.js"></script>
-
-
-
+    <script src="{{ asset('js/sr.js') }}"></script>
 </body>
 </html>
+
+
+

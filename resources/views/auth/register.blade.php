@@ -18,16 +18,16 @@
 
 
     <div class="registro">
-        <img class="avatar" src="{{ asset('img/elsena.png') }}" alt="Logo de Fazt">
+        <img class="avatar" src="img/senalog.png" alt="Logo de Fazt">
 
         <h1>Crear cuenta</h1>
         <!--nombre-->
         <div class="input-control">
-          <section> 
+          <section>
         @error('username')
         <small class="small">{{$message}}</small>
         @enderror
-        </section> 
+        </section>
         <label for="username">Nombre</label>
         <input type="text" placeholder="nombre" name="username" id="username" value="{{old('username')}}">
                 </div>
@@ -41,7 +41,7 @@
         <label for="email">Correo electronico</label>
         <input type="email" placeholder="correo electronico" name="email" id="email" value="{{old('email')}}">
                 </div>
-                
+
 
 
         <!--contraseña-->
@@ -51,7 +51,7 @@
         @enderror
         <label for="password">Contraseña</label>
         <input type="password" placeholder="Almenos 6 caracteres" name="password" id="password" value="{{old('password')}}">
-       
+
                 </div>
 
 
@@ -62,15 +62,15 @@
         @enderror
         <label for="password2">Confirmar contraseña</label>
         <input type="password" placeholder="contraseña" name="password2" id="password2">
-      
+
        <input type="submit" value="Continuar" id="button" >
-       
+
                 </div>
-    
+
 
     </div>
     </form>
-    
+
 </body>
 
 
