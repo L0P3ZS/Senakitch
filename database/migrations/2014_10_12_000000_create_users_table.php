@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('external_id')->nullable();
             $table->string('external_auth')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->nullable()->change();
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
